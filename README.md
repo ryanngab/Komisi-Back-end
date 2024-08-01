@@ -1,66 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistem Komisi dan Pembayaran
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Selamat datang di proyek Sistem Komisi dan Pembayaran! Proyek ini adalah aplikasi Laravel yang dirancang untuk menghitung komisi marketing dan mengelola pembayaran secara kredit berdasarkan data penjualan.
 
-## About Laravel
+## Daftar Isi
+- [Pengenalan](#pengenalan)
+- [Fitur](#fitur)
+- [Teknologi yang Digunakan](#teknologi-yang-digunakan)
+- [Instalasi](#instalasi)
+- [Penggunaan](#penggunaan)
+- [API](#api)
+- [Kontribusi](#kontribusi)
+- [Lisensi](#lisensi)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Pengenalan
+Proyek ini adalah aplikasi Laravel yang mencakup API untuk menghitung komisi marketing berdasarkan omzet bulanan dan mengelola pembayaran secara kredit. Sistem ini juga dilengkapi dengan API untuk melakukan dan memantau pembayaran.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fitur
+1. **Perhitungan Komisi Marketing**:
+   - Menghitung komisi marketing berdasarkan omzet dengan ketentuan:
+     - 0 - 100.000.000: 0%
+     - 100.000.000 - 200.000.000: 2.5%
+     - 200.000.000 - 500.000.000: 5%
+     - >= 500.000.000: 10%
+   - Menampilkan hasil perhitungan komisi per bulan untuk setiap marketing.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+2. **Manajemen Pembayaran**:
+   - Membuat tabel pembayaran untuk melakukan pembayaran secara kredit.
+   - API untuk melakukan dan memantau pembayaran.
 
-## Learning Laravel
+## Teknologi yang Digunakan
+- Laravel: Framework PHP untuk membangun aplikasi web yang robust.
+- MySQL: Sistem manajemen basis data untuk menyimpan data marketing dan penjualan.
+- Blade: Mesin template Laravel untuk membuat tampilan web.
+- HTML5 & CSS3: Bahasa markup dan styling untuk membangun halaman web.
+- JavaScript: Bahasa pemrograman untuk menambahkan interaktivitas pada aplikasi web.
+- Git: Sistem kontrol versi untuk melacak perubahan dan berkolaborasi dalam proyek.
+- GitHub Pages: Platform untuk hosting dan menerbitkan aplikasi web.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Instalasi
+Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah berikut:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. Clone repositori: `git clone https://github.com/username/repository-name.git`
+2. Masuk ke direktori proyek: `cd repository-name`
+3. Instal dependensi: `composer install`
+4. Salin file konfigurasi lingkungan: `cp .env.example .env`
+5. Buat kunci aplikasi: `php artisan key:generate`
+6. Jalankan migrasi dan seeder database: `php artisan migrate --seed`
+7. Mulai server pengembangan: `php artisan serve`
+8. Buka browser Anda dan kunjungi: `http://localhost:8000`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Penggunaan
+Setelah menginstal dan menjalankan proyek secara lokal, Anda dapat mengakses API dan melihat hasil perhitungan komisi serta mengelola pembayaran secara kredit. Berikut adalah cara menggunakan fitur utama:
 
-## Laravel Sponsors
+1. **Perhitungan Komisi**:
+   - Akses endpoint API untuk menghitung dan menampilkan komisi marketing berdasarkan omzet bulanan.
+   - Format URL: `http://localhost:8000/api/komisi`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+2. **Manajemen Pembayaran**:
+   - Akses endpoint API untuk membuat dan memantau pembayaran.
+   - Format URL: `http://localhost:8000/api/pembayaran`
 
-### Premium Partners
+## API
+Berikut adalah dokumentasi API yang tersedia:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### Perhitungan Komisi
+- **Endpoint**: `GET /api/komisi`
+- **Deskripsi**: Menampilkan komisi marketing berdasarkan omzet bulanan.
+- **Response**:
+  ```json
+  [
+    {
+      "marketing": "Alfandy",
+      "bulan": "Mei",
+      "omzet": 138000000,
+      "komisi_persen": 2.5,
+      "komisi_nominal": 3450000
+    },
+    {
+      "marketing": "Mery",
+      "bulan": "Mei",
+      "omzet": 80000000,
+      "komisi_persen": 0,
+      "komisi_nominal": 0
+    }
+    ...
+  ]
 
-## Contributing
+## Kontribusi
+Kontribusi sangat diterima! Jika Anda ingin berkontribusi pada Portofolio Saya, silakan ikuti langkah-langkah berikut:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Fork repositori.
+2. Buat cabang baru untuk fitur atau perbaikan bug Anda: `git checkout -b my-feature`
+3. Commit perubahan Anda: `git commit -m 'Menambahkan fitur baru'`
+4. Push ke cabang: `git push origin my-feature`
+5. Buka pull request.
 
-## Code of Conduct
+## Lisensi
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Terima kasih telah mengunjungi portofolio saya! Jika ada pertanyaan atau masukan, jangan ragu untuk menghubungi saya.
