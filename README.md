@@ -25,7 +25,7 @@ Proyek ini adalah aplikasi Laravel yang mencakup API untuk menghitung komisi mar
         - 0 - 100.000.000: 0%
         - 100.000.000 - 200.000.000: 2.5%
         - 200.000.000 - 500.000.000: 5%
-        - > = 500.000.000: 10%
+        - >= 500.000.000: 10%
     - Menampilkan hasil perhitungan komisi per bulan untuk setiap marketing.
 
 2. **Manajemen Pembayaran**:
@@ -61,9 +61,19 @@ Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah berikut:
 3. Instal dependensi: `composer install`
 4. Salin file konfigurasi lingkungan: `cp .env.example .env`
 5. Buat kunci aplikasi: `php artisan key:generate`
-6. Jalankan migrasi dan seeder database: `php artisan migrate --seed`
-7. Mulai server pengembangan: `php artisan serve`
-8. Buka browser Anda dan kunjungi: `http://localhost:8000`
+6. **Konfigurasikan file `.env` Anda**:
+    - Pastikan Anda mengatur detail database Anda di `.env`:
+        ```env
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=nama_database_anda
+        DB_USERNAME=username_anda
+        DB_PASSWORD=password_anda
+        ```
+7. Jalankan migrasi dan seeder database: `php artisan migrate --seed`
+8. Mulai server pengembangan: `php artisan serve`
+9. Buka browser Anda dan kunjungi: `http://localhost:8000`
 
 ## Penggunaan
 
@@ -77,6 +87,20 @@ Setelah menginstal dan menjalankan proyek secara lokal, Anda dapat mengakses API
 2. **Manajemen Pembayaran**:
     - Akses endpoint API untuk membuat dan memantau pembayaran.
     - Format URL: `http://localhost:8000/api/pembayaran`
+    - Akses endpoint API untuk menampilkan daftar pembayaran.
+    - Format URL: `http://localhost:8000/api/daftar-pembayaran`
+
+3. **Manajemen Penjualan**:
+    - Akses endpoint API untuk mengelola data penjualan.
+    - Format URL: `http://localhost:8000/api/create-penjualan`
+    - Akses endpoint API untuk menampilkan data penjualan.
+    - Format URL: `http://localhost:8000/api/daftar-penjualan`
+    
+4. **Manajemen Marketing**:
+    - Akses endpoint API untuk mengelola data marketing.
+    - Format URL: `http://localhost:8000/api/create-marketing`
+    - Akses endpoint API untuk menampilkan data marketing.
+    - Format URL: `http://localhost:8000/api/daftar-marketing`
 
 ## API
 
@@ -111,7 +135,7 @@ Dokumentasi lengkap API dapat ditemukan dalam file koleksi Postman di folder `po
 Kontribusi sangat diterima! Jika Anda ingin berkontribusi pada Portofolio Saya, silakan ikuti langkah-langkah berikut:
 
 1. Fork repositori.
-2. Buat cabang baru untuk fitur atau perbaikan bug Anda: `git checkout -b my-feature`
-3. Commit perubahan Anda: `git commit -m 'Menambahkan fitur baru'`
-4. Push ke cabang: `git push origin my-feature`
+2. Buat cabang baru untuk fitur atau perbaikan bug Anda: git checkout -b my-feature
+3. Commit perubahan Anda: git commit -m 'Menambahkan fitur baru'
+4. Push ke cabang: git push origin my-feature
 5. Buka pull request.
